@@ -1,68 +1,49 @@
-# 🌿 Plant Disease Detection & Classification using CNN
+# Plant Disease Detection with PyTorch
 
-An end-to-end Deep Learning pipeline built from scratch using PyTorch to accurately classify plant species and diagnose health conditions from leaf images.
+This repository contains a custom Convolutional Neural Network (CNN) built with PyTorch to classify plant diseases from leaf images. 
 
-## 🚀 Performance Summary
+I built this project to get hands-on experience with deep learning pipelines—from loading and transforming raw image data to writing a custom training loop and evaluating the results. The model can identify 39 different classes of plant species and diseases (like Apple Black Rot or Tomato Late Blight).
+
+## Performance
 * **Test Accuracy:** ~96%
 * **Validation Accuracy:** ~96%
 * **Training Accuracy:** ~99%
 
----
+## The Dataset
+The model was trained on the **PlantVillage dataset**, which contains 61,486 images. 
+* I split the data into 80% training, 10% validation, and 10% testing.
+* All images are resized to 255x255, center-cropped to 224x224, and converted to tensors.
 
-## 📌 Project Overview
+## Model Architecture
+Instead of just fine-tuning a massive pre-trained model like ResNet or VGG16, I wanted to see how well a lighter, custom-built model could perform. 
 
-In modern agriculture, early and accurate identification of plant diseases is critical to preventing crop loss and ensuring food security. Traditional manual diagnosis relies heavily on expert knowledge, making it slow, scaling poorly, and prone to human error. 
+I built a 4-block CNN from scratch. The architecture looks like this:
+* **4 Convolutional Blocks:** Each block uses `Conv2d`, followed by `ReLU` activation, `BatchNorm2d` (to keep training stable and fast), and `MaxPool2d` for downsampling.
+* **Classifier:** A fully connected layer at the end.
+* **Regularization:** I added a 40% Dropout (`p=0.4`) before the final output layer to prevent the model from just memorizing the training data.
 
-This project addresses this challenge by establishing a complete, automated computer vision system utilizing deep learning to rapidly classify leaf images into healthy or diseased categories.
+The final model has about 52.5 million parameters. It was trained using **Cross-Entropy Loss** and the **Adam Optimizer**.
 
-### 🔍 Problem Statement
-Given a dataset containing thousands of arbitrary leaf images across multiple plant varieties (e.g., Apple, Corn, Potato, Tomato, Grape), the objective is to build an intelligent classifier capable of:
-1. Recognizing the plant species.
-2. Diagnosing the exact health anomaly or disease strain (e.g., Black Rot, Common Rust, Late Blight).
-3. Maintaining high evaluation metrics across balanced and imbalanced target classes alike.
+## Results
+I trained the network for 10 epochs (batch size = 64). I also wrote a checkpointing script in the training loop that tracks the validation loss at the end of each epoch and only saves the model weights (`plant_disease_model_1.pt`) if the loss improves. 
 
-### 💡 Why a Custom CNN?
-While many solutions rely on heavy, pre-trained architectures like VGG16 or ResNet, this project intentionally implements a custom **4-Block Convolutional Neural Network (CNN)** engineered from scratch. 
+The validation and test accuracies matched up closely (both around 96%), meaning the model generalizes well to new leaves it hasn't seen before.
 
-* **Efficiency:** Standard pre-trained architectures contain up to hundreds of millions of parameters, requiring immense compute resources. This custom model minimizes computational overhead while maintaining structural depth.
-* **Control:** Designing the architecture from the ground up allowed for deliberate regularization integration (such as **Batch Normalization** after each convolutional step and a **40% Dropout rate** prior to dense classification layers) to explicitly curb overfitting.
-* **Granular Optimization:** The custom training loop utilizes a model checkpointing mechanism that evaluates validation loss at the end of every epoch, ensuring that only the most optimal mathematical weights are saved for final deployment.
+<p align="center">
+  <img src="assets/metrics.png" width="500" alt="Training and Validation Metrics">
+</p>
 
----
+*Above: The training and validation loss/accuracy curves over 10 epochs.*
 
-## 📊 Dataset
-The project utilizes the popular **Plant Village Dataset** consisting of **61,486 images** mapped across **39 distinct classes** (including various healthy and diseased conditions for apples, corn, grapes, tomatoes, etc.).
+## How to Run It
 
-* **Data Split:** 80% Training, 10% Validation, 10% Testing (managed cleanly via `SubsetRandomSampler`).
-* **Preprocessing:** Resized to 255x255, Center Cropped to 224x224, and normalized into PyTorch Tensors.
+If you want to run this code or train the model yourself:
 
----
+1. **Clone the repo:**
+   ```bash
+   git clone [https://github.com/ShubhamBh078/plant-disease-detection.git](https://github.com/ShubhamBh078/plant-disease-detection.git)
 
-## 🧠 Model Architecture
-* **Convolutional Layers:** 4 sequential blocks utilizing `Conv2d`, `ReLU` activation, `BatchNorm2d` (for training stability), and `MaxPool2d` (for downsampling).
-* **Regularization:** `Dropout(p=0.4)` implemented in the dense layers to actively mitigate overfitting.
-* **Total Parameters:** ~52.5 Million
-* **Loss Function:** Cross-Entropy Loss
-* **Optimizer:** Adam Optimizer
-
----
-
-## 📈 Training & Results
-The network was trained for **10 epochs** using a batch size of 64 on a CUDA-enabled GPU environment. 
-* **Model Checkpointing:** Implemented an automated weight-saving mechanism (`plant_disease_model_1.pt`) tracking minimal validation loss.
-* Training plots demonstrate clean convergence without indicators of severe overfitting.
-
----
-
-## 🛠️ Tech Stack & Dependencies
-* **Language:** Python 3
-* **Deep Learning Framework:** PyTorch & Torchvision
-* **Data Processing & Visualization:** NumPy, Pandas, Matplotlib
-* **Environment:** Google Colab / Jupyter Notebooks
-
----
-
-## 💻 How to Run
+ How to Run
 1. Clone the repository:
    ```bash
    git clone https://github.com/ShubhamBh078/plant-disease-detection.git
