@@ -1,4 +1,4 @@
-# 🌿 Plant Disease Detection & Classification using Custom PyTorch CNN
+# 🌿 Plant Disease Detection & Classification using CNN
 
 An end-to-end Deep Learning pipeline built from scratch using PyTorch to accurately classify plant species and diagnose health conditions from leaf images.
 
