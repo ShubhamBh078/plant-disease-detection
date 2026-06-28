@@ -65,4 +65,7 @@ The network was trained for **10 epochs** using a batch size of 64 on a CUDA-ena
 ## 💻 How to Run
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/YOUR_USERNAME/plant-disease-detection.git](https://github.com/YOUR_USERNAME/plant-disease-detection.git)
+   git clone https://github.com/ShubhamBh078/plant-disease-detection.git
+2. Install dependencies:
+   pip install -r requirements.txt
+3. Open plant_disease_detection.ipynb in Google Colab or Jupyter and run all cells.   
