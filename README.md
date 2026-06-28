@@ -29,9 +29,9 @@ I trained the network for 10 epochs (batch size = 64). I also wrote a checkpoint
 
 The validation and test accuracies matched up closely (both around 96%), meaning the model generalizes well to new leaves it hasn't seen before.
 
-<p align="center">
+<!-- <p align="center">
   <img src="assets/metrics.png" width="500" alt="Training and Validation Metrics">
-</p>
+</p> -->
 
 *Above: The training and validation loss/accuracy curves over 10 epochs.*
 
@@ -39,14 +39,11 @@ The validation and test accuracies matched up closely (both around 96%), meaning
 
 If you want to run this code or train the model yourself:
 
-1. **Clone the repo:**
-   ```bash
-   git clone [https://github.com/ShubhamBh078/plant-disease-detection.git](https://github.com/ShubhamBh078/plant-disease-detection.git)
-
  How to Run
 1. Clone the repository:
    ```bash
    git clone https://github.com/ShubhamBh078/plant-disease-detection.git
 2. Install dependencies:
+   ```bash
    pip install -r requirements.txt
-3. Open plant_disease_detection.ipynb in Google Colab or Jupyter and run all cells.   
+4. Open plant_disease_detection.ipynb in Google Colab or Jupyter and run all cells.   
