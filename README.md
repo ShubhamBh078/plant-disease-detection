@@ -22,7 +22,6 @@ I built a 4-block CNN from scratch. The architecture looks like this:
 * **Classifier:** A fully connected layer at the end.
 * **Regularization:** I added a 40% Dropout (`p=0.4`) before the final output layer to prevent the model from just memorizing the training data.
 
-The final model has about 52.5 million parameters. It was trained using **Cross-Entropy Loss** and the **Adam Optimizer**.
 
 ## Results
 I trained the network for 10 epochs (batch size = 64). I also wrote a checkpointing script in the training loop that tracks the validation loss at the end of each epoch and only saves the model weights (`plant_disease_model_1.pt`) if the loss improves. 
