@@ -27,7 +27,7 @@ The final model has about 52.5 million parameters. It was trained using **Cross-
 ## Results
 I trained the network for 10 epochs (batch size = 64). I also wrote a checkpointing script in the training loop that tracks the validation loss at the end of each epoch and only saves the model weights (`plant_disease_model_1.pt`) if the loss improves. 
 
-The validation and test accuracies matched up closely (both around 96%), meaning the model generalizes well to new leaves it hasn't seen before.
+The validation and test accuracies matched up closely (both around 86%), meaning the model generalizes well to new leaves it hasn't seen before.
 
 <!-- <p align="center">
   <img src="assets/metrics.png" width="500" alt="Training and Validation Metrics">
