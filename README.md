@@ -5,9 +5,9 @@ This repository contains a custom Convolutional Neural Network (CNN) built with 
 I built this project to get hands-on experience with deep learning pipelines—from loading and transforming raw image data to writing a custom training loop and evaluating the results. The model can identify 39 different classes of plant species and diseases (like Apple Black Rot or Tomato Late Blight).
 
 ## Performance
-* **Test Accuracy:** ~96%
-* **Validation Accuracy:** ~96%
-* **Training Accuracy:** ~99%
+* **Test Accuracy:** ~88%
+* **Validation Accuracy:** ~86%
+* **Training Accuracy:** ~86%
 
 ## The Dataset
 The model was trained on the **PlantVillage dataset**, which contains 61,486 images. 
