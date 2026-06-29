@@ -2,7 +2,7 @@
 
 This repository contains a custom Convolutional Neural Network (CNN) built with PyTorch to classify plant diseases from leaf images. 
 
-I built this project to get hands-on experience with deep learning pipelines—from loading and transforming raw image data to writing a custom training loop and evaluating the results. The model can identify 39 different classes of plant species and diseases (like Apple Black Rot or Tomato Late Blight).
+I built this project to get hands-on experience with deep learning pipelines—from loading and transforming raw image data to writing a custom training loop and evaluating the results. The model can identify 38 different classes of plant species and diseases (like Apple Black Rot or Tomato Late Blight).
 
 ## Performance
 * **Test Accuracy:** ~88%
